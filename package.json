@@ -1,0 +1,19 @@
+{
+	"name": "backend",
+	"version": "1.0.0",
+	"main": "server.js",
+	"license": "MIT",
+	"scripts": {
+		"watch": "tsc -w",
+		"js-run": "nodemon dist/server.js",
+		"dev": "cross-env yarn watch & yarn js-run",
+		"start": "nodemon server.js"
+	},
+	"dependencies": {
+		"cross-env": "^7.0.3",
+		"express": "^4.17.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.13"
+	}
+}

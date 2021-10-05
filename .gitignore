@@ -1,0 +1,11 @@
+.vscode
+node_modules
+
+media
+dist
+
+.env
+
+.jpg
+.jpeg
+.png
