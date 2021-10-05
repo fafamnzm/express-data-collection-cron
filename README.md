@@ -5,7 +5,6 @@ Test project which collects mock data and process it on a period using **node-cr
 ## Project setup
 
 ```
-in server
   yarn install
 
   You have to have postgres installed and
