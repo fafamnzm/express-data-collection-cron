@@ -1,6 +1,19 @@
 import cron from "node-cron"
+import { createConnection } from "typeorm"
 
 import { Data } from "../models/entity"
+
+export const connectToDB = async function () {
+  await createConnection({
+    type: "postgres",
+    username: process.env.PG_DB_USERNAME,
+    password: process.env.PG_DB_PASSWORD,
+    database: process.env.PG_DB_NAME,
+    logging: true,
+    synchronize: true,
+    entities: ["./models/entity.ts"],
+  })
+}
 
 export const imageProcess = async function () {
   await sleep(500)
@@ -13,19 +26,18 @@ export const imageProcess = async function () {
 
 export const processData = async function () {
   const res = await Data.find({ where: { processed: false } })
-  console.log({ res })
   await sleep(500)
   const randomSuccessRate = Math.random()
   if (randomSuccessRate < 0.1) {
     //? Unsuccessful
-    return "unsuccessful"
+    return 500
   } else {
     //? Successful
     const newRes = res.map(async el => {
       el.processed = true
       return await el.save()
     })
-    return newRes
+    return 201
   }
 }
 

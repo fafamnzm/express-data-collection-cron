@@ -14,8 +14,8 @@ router.get("/requestImageProcess", async (_req, res) => {
 })
 
 router.get("/processData", async (_req, res) => {
-  await processData()
-  return res.status(201).send({})
+  const responseStatusCode = await processData()
+  return res.status(responseStatusCode).end()
 })
 
 router.get("/results", async (_req, res) => {

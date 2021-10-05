@@ -3,9 +3,8 @@ import "dotenv-safe/config"
 
 import express from "express"
 const app = express()
-import { createConnection } from "typeorm"
 
-import { scheduler } from "./middlewares/index"
+import { connectToDB, scheduler } from "./middlewares/index"
 import router from "./routers/dataRouter"
 
 // Route Imports
@@ -20,16 +19,8 @@ app.use("/", router)
 
 const main = async () => {
   try {
-    // Connect to a DB
-    await createConnection({
-      type: "postgres",
-      username: process.env.PG_DB_USERNAME,
-      password: process.env.PG_DB_PASSWORD,
-      database: process.env.PG_DB_NAME,
-      logging: true,
-      synchronize: true,
-      entities: ["./models/entity.ts"],
-    })
+    //* Connect to a DB
+    await connectToDB()
 
     //* Listen to server
     app.listen(4000, () => {
