@@ -5,7 +5,9 @@ Test project which collects mock data and process it on a period using **node-cr
 ## Project setup
 
 ```
-  yarn install
+  `yarn`
+  or
+  `npm install`
 
   You have to have postgres installed and
   the table with the chosen name created
@@ -22,7 +24,9 @@ Test project which collects mock data and process it on a period using **node-cr
 ### Compiles and hot-reloads for development
 
 ```
-yarn start
+  `yarn start`
+  or
+  `npm start`
 ```
 
 ### App work flow
@@ -43,5 +47,7 @@ To run the tests:
   with the server running:
 
   `yarn test`
+  or
+  `npm t`
 
 ```
