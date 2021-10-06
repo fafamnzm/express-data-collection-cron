@@ -1,10 +1,13 @@
 import cron from "node-cron"
 import { createConnection } from "typeorm"
+import express from "express"
 
 import { Data } from "../models/entity"
 
+export const app = express()
+
 export const connectToDB = async function () {
-  await createConnection({
+  return createConnection({
     type: "postgres",
     username: process.env.PG_DB_USERNAME,
     password: process.env.PG_DB_PASSWORD,

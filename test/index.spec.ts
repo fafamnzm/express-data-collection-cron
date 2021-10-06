@@ -1,7 +1,19 @@
-const sum = function () {
-  return 2
-}
+import "dotenv-safe/config"
 
-test("test", () => {
-  expect(sum()).toBe(2)
+import axios from "axios"
+
+const port = process.env.PORT || 3001
+beforeAll(async () => {
+  axios.defaults.baseURL = `http://localhost:${port}`
+})
+
+afterAll(async () => {})
+
+describe("GET /resutls - get results from endpoint", () => {
+  test("The get request to results should work", async () => {
+    const result = await axios.get("/results")
+
+    expect(result.status).toEqual(200)
+    expect(result.data).toBeDefined()
+  })
 })
