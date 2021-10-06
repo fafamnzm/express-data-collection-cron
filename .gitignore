@@ -9,3 +9,5 @@ dist
 .jpg
 .jpeg
 .png
+
+yarn-error.log
