@@ -2,13 +2,17 @@ import "reflect-metadata"
 import "dotenv-safe/config"
 
 import { app } from "./middlewares/index"
+import cors from "cors"
 
 import { connectToDB, scheduler } from "./middlewares/index"
 import router from "./routers/dataRouter"
 
 // Route Imports
 
-// Middlewares
+//* Middlewares
+
+//? Enable cors for frontend
+app.use(cors({ origin: "http://localhost:3000" }))
 
 //* Route Middlewares
 

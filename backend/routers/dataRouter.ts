@@ -10,7 +10,7 @@ import { processData, imageProcess } from "../middlewares/index"
 
 router.get("/requestImageProcess", async (_req, res) => {
   const response = await imageProcess()
-  return res.status(200).send({ response })
+  return res.status(200).send(response)
 })
 
 router.get("/processData", async (_req, res) => {
